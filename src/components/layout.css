@@ -679,6 +679,18 @@ pre tt:after {
     text-align: left;
 }
 
+.headerDiv {
+    margin: 0 auto;
+    max-width: 1140px;
+    padding: 1.45rem 1.0875rem;
+}
+
+@media (max-width: 1200px) {
+    .headerDiv {
+        max-width: 960px;
+    }
+}
+
 @media (max-width: 992px) {
     hr {
         top: 32px!important;
@@ -695,9 +707,16 @@ pre tt:after {
         margin-left: auto!important;
         margin-right: auto!important;
     }
+
+    .headerDiv {
+        max-width: 723px;
+    }
 }
 
 @media (max-width: 768px) {
+    .headerDiv {
+        max-width: 550px;
+    }
 }
 
 @media only screen and (max-width: 480px) {
