@@ -56,7 +56,7 @@ export default ({ pageContext: { releases } }) => (
                     </Row>
                   </Container>
                 </Col>
-                <Col md={3} style={{ padding: "2px" }}>
+                <Col lg={3} style={{ padding: "2px" }}>
                   <Container fluid={true} style={{ padding: "5px" }}>
                     <Row>
                       <Col>
