@@ -57,7 +57,7 @@ export default ({ pageContext: { releases } }) => (
                   </Container>
                 </Col>
                 <Col lg={3} style={{ padding: "2px" }}>
-                  <Container fluid={true} style={{ padding: "5px" }}>
+                  <Container fluid={true} className="ghbtnsContainer">
                     <Row>
                       <Col>
                         <iframe

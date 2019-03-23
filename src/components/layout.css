@@ -270,42 +270,24 @@ img {
 }
 
 h1 {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
+    padding: 0;
+    margin: 0 0 1.45rem;
     color: inherit;
     text-rendering: optimizeLegibility;
     line-height: 1.1;
 }
 
 h2 {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
+    padding: 0;
+    margin: 0 0 1.45rem;
     color: inherit;
     text-rendering: optimizeLegibility;
     line-height: 1.1;
 }
 
 h3 {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
+    padding: 0;
+    margin: 0 0 1.45rem;
     color: inherit;
     text-rendering: optimizeLegibility;
     line-height: 1.1;
@@ -685,9 +667,18 @@ pre tt:after {
     padding: 1.45rem 1.0875rem;
 }
 
+.ghbtnsContainer {
+    padding: 5px!important;
+    margin-left: 50px!important;
+}
+
 @media (max-width: 1200px) {
     .headerDiv {
         max-width: 960px;
+    }
+
+    .ghbtnsContainer {
+        margin-left: 30px!important;
     }
 }
 
@@ -695,6 +686,10 @@ pre tt:after {
     hr {
         top: 32px!important;
         width: 100%;
+    }
+
+    .ghbtnsContainer {
+        margin-left: 0!important;
     }
 
     .listHeader {
