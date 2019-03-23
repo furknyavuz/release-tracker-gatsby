@@ -687,6 +687,7 @@ pre tt:after {
 
     .listHeader {
         text-align: center;
+        padding-left: 15px;
     }
 
     .listImage {
