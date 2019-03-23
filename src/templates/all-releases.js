@@ -18,9 +18,18 @@ export default ({ pageContext: { releases } }) => (
     <ListGroup>
       {releases.map(release => (
         release.tagName &&
-        <ListGroupItem>
+        <ListGroupItem style={{ marginBottom: "20px", borderRadius: "3px" }}>
           <ListGroupItemHeading className="text-muted">
-            {`${release.owner}/${release.name}`}
+            <Container fluid={true}>
+              <Row>
+                <Col lg={1}>
+                  <img src={release.avatarUrl} height={40} width={40}></img>
+                </Col>
+                <Col style={{ paddingTop: "9px", paddingBottom: "9px", paddingLeft: "0" }}>
+                  {`${release.owner}/${release.name}`}
+                </Col>
+              </Row>
+            </Container>
           </ListGroupItemHeading>
           <hr/>
           <ListGroupItemText>
@@ -31,12 +40,14 @@ export default ({ pageContext: { releases } }) => (
                     <Row style={{ padding: "4px", paddingBottom: "15px", paddingTop: "10px" }}>
                       {`${release.description}`}
                     </Row>
-                    <Row style={{ paddingBottom: "10px"}}>
-                      <a style={{ padding: "2px", paddingLeft: "5px", paddingRight: "5px" }} href={`https://www.github.com${release.resourcePath}`}
+                    <Row style={{ paddingBottom: "10px" }}>
+                      <a style={{ padding: "2px", paddingLeft: "5px", paddingRight: "5px" }}
+                         href={`https://www.github.com${release.resourcePath}`}
                          rel="noopener noreferrer" target="_blank">
                         <Button size="sm" outline color="success">{`Latest release: ${release.tagName}`}</Button>
                       </a>
-                      <a style={{ padding: "2px", paddingLeft: "5px", paddingRight: "5px" }} href={`${release.homepageUrl}`} rel="noopener noreferrer"
+                      <a style={{ padding: "2px", paddingLeft: "5px", paddingRight: "5px" }}
+                         href={`${release.homepageUrl}`} rel="noopener noreferrer"
                          target="_blank">
                         <Button size="sm" outline color="secondary">{`${release.homepageUrl}`}</Button>
                       </a>
@@ -44,7 +55,7 @@ export default ({ pageContext: { releases } }) => (
                   </Container>
                 </Col>
                 <Col md={3} style={{ padding: "2px" }}>
-                  <Container fluid={true}>
+                  <Container fluid={true} style={{ padding: "5px" }}>
                     <Row>
                       <Col>
                         <iframe
