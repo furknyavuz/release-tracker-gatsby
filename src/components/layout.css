@@ -659,6 +659,9 @@ pre tt:after {
 
 .listHeader {
     text-align: left;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 0!important;
 }
 
 .headerDiv {
@@ -694,7 +697,7 @@ pre tt:after {
 
     .listHeader {
         text-align: center;
-        padding-left: 15px;
+        padding-left: 15px!important;
     }
 
     .listImage {

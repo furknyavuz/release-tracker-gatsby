@@ -26,7 +26,7 @@ export default ({ pageContext: { releases } }) => (
                   <Col lg={1}>
                     <img src={release.avatarUrl} height={40} width={40} className="listImage"></img>
                   </Col>
-                  <Col style={{ paddingTop: "9px", paddingBottom: "9px", paddingLeft: "0" }} className="listHeader">
+                  <Col className="listHeader">
                     {`${release.owner}/${release.name}`}
                   </Col>
                 </Row>
