@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Release Tracker`,
+    title: `GitHub Release Tracker`,
     description: `Track latest releases of popular github repositories.`,
     author: `@furknyavuz`,
   },
