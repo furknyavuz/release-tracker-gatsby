@@ -9,7 +9,6 @@ export default ({ pageContext: { releases } }) => (
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]}/>
     <div style={{ width: 960, margin: "4rem auto" }}>
       <h2>Track latest releases of popular github repositories.</h2>
-      <p>{releases.length}</p>
       <ListGroup>
       </ListGroup>
       {releases.map(release => (
