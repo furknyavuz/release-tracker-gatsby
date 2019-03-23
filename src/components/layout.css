@@ -682,7 +682,7 @@ pre tt:after {
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
     hr {
         top: 32px!important;
         width: 100%;
@@ -708,7 +708,7 @@ pre tt:after {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .headerDiv {
         max-width: 550px;
     }
