@@ -19,20 +19,22 @@ export default ({ pageContext: { releases } }) => (
       {releases.map(release => (
         release.tagName &&
         <ListGroupItem style={{ marginBottom: "20px", borderRadius: "3px" }}>
-          <ListGroupItemHeading className="text-muted">
-            <Container fluid={true}>
-              <Row>
-                <Col lg={1}>
-                  <img src={release.avatarUrl} height={40} width={40}></img>
-                </Col>
-                <Col style={{ paddingTop: "9px", paddingBottom: "9px", paddingLeft: "0" }}>
-                  {`${release.owner}/${release.name}`}
-                </Col>
-              </Row>
-            </Container>
-          </ListGroupItemHeading>
-          <hr/>
-          <ListGroupItemText>
+          <div style={{ position: "relative" }}>
+            <ListGroupItemHeading className="text-muted">
+              <Container fluid={true}>
+                <Row>
+                  <Col lg={1}>
+                    <img src={release.avatarUrl} height={40} width={40} className="listImage"></img>
+                  </Col>
+                  <Col style={{ paddingTop: "9px", paddingBottom: "9px", paddingLeft: "0" }} className="listHeader">
+                    {`${release.owner}/${release.name}`}
+                  </Col>
+                </Row>
+              </Container>
+            </ListGroupItemHeading>
+            <hr style={{ position: "absolute" }}></hr>
+          </div>
+          <ListGroupItemText style={{ paddingTop: "26px" }}>
             <Container fluid={true}>
               <Row>
                 <Col style={{ padding: "2px" }}>
