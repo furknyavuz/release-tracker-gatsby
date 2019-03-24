@@ -5,68 +5,72 @@
  */
 
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+  path: `.env.${process.env.NODE_ENV}`
+});
+
+function camalize(str) {
+  return str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+}
+
+function hyphen(str) {
+  return str.toLowerCase().replace(/ /g, "-");
+}
+
+async function asyncForEach(array, callback) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array);
+  }
+}
 
 const axios = require("axios");
 
-const get = endpoint => axios.get(`https://pokeapi.co/api/v2${endpoint}`);
-
-const getPokemonData = names =>
-  Promise.all(
-    names.map(async name => {
-      const { data: pokemon } = await get(`/pokemon/${name}`);
-      const abilities = await Promise.all(
-        pokemon.abilities.map(async ({ ability: { name: abilityName } }) => {
-          const { data: ability } = await get(`/ability/${abilityName}`);
-
-          return ability;
-        })
-      );
-
-      return { ...pokemon, abilities };
-    })
-  );
-
-const getReleasesData = async () => {
+const getReleasesByGroupData = async (group) => {
   console.log(process.env.API_URL);
-  return axios.get(`${process.env.API_URL}/github-releases`);
-}
+  return axios.get(`${process.env.API_URL}/github-releases?group=${group}`);
+};
+
+const getReleaseGroups = async () => {
+  console.log(process.env.API_URL);
+  return axios.get(`${process.env.API_URL}/github-releases/group`);
+};
 
 exports.createPages = async ({ actions: { createPage } }) => {
-  const allPokemon = await getPokemonData(["pikachu", "charizard", "squirtle"]);
+  let groups = await getReleaseGroups();
+  groups = groups.data;
 
-  let releases = await getReleasesData();
-  releases = releases.data;
+  let groupNodes = [];
 
-  // Create a page that lists all Pokémon.
-  createPage({
-    path: `/list`,
-    component: require.resolve("./src/templates/all-pokemon.js"),
-    context: { allPokemon }
+  for (let i = 0; i < groups.length; i++) {
+    groupNodes[i] = {
+      group: groups[i].name,
+      description: groups[i].description,
+      path: hyphen(groups[i].name),
+      releases: {}
+    };
+  }
+
+  let j = 0;
+  await asyncForEach(groupNodes, async (groupNode) => {
+    let group =  {
+      name: groupNode.group,
+      description: groupNode.description
+    }
+    let releases = await getReleasesByGroupData(group.name);
+    releases = releases.data;
+    groupNodes[j].releases = releases;
+    ++j;
+
+    createPage({
+      path: `/${groupNode.path}`,
+      component: require.resolve("./src/templates/group.js"),
+      context: { group , releases }
+    });
   });
 
   createPage({
     path: `/`,
-    component: require.resolve("./src/templates/all-releases.js"),
-    context: { releases }
-  });
-
-  // Create a page for each Pokémon.
-  allPokemon.forEach(pokemon => {
-    createPage({
-      path: `/pokemon/${pokemon.name}/`,
-      component: require.resolve("./src/templates/pokemon.js"),
-      context: { pokemon }
-    });
-
-    // Create a page for each ability of the current Pokémon.
-    pokemon.abilities.forEach(ability => {
-      createPage({
-        path: `/pokemon/${pokemon.name}/ability/${ability.name}/`,
-        component: require.resolve("./src/templates/ability.js"),
-        context: { pokemon, ability }
-      });
-    });
+    component: require.resolve("./src/templates/all-groups.js"),
+    context: { groupNodes }
   });
 };
+

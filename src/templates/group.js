@@ -11,10 +11,10 @@ import {
   Container, Row, Col
 } from "reactstrap";
 
-export default ({ pageContext: { releases } }) => (
+export default ({ pageContext: { group, releases } }) => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`, `github`]}/>
-    <h3 style={{ padding: "2px", paddingBottom: "10px" }}>Latest releases of popular repositories</h3>
+    <h3 style={{ padding: "2px", paddingBottom: "10px" }}>{`Latest releases of popular ${group.name} repositories`}</h3>
     <ListGroup>
       {releases.map(release => (
         release.tagName &&
@@ -49,8 +49,8 @@ export default ({ pageContext: { releases } }) => (
                         <Button className="linkButton" size="sm" outline color="success">{`Latest release: ${release.tagName}`}</Button>
                       </a>
                       {release.homepageUrl && <a className="listLink"
-                         href={`${release.homepageUrl}`} rel="noopener noreferrer"
-                         target="_blank">
+                                                 href={`${release.homepageUrl}`} rel="noopener noreferrer"
+                                                 target="_blank">
                         <Button className="linkButton" size="sm" outline color="secondary">{`${release.homepageUrl}`}</Button>
                       </a>}
                     </Row>
