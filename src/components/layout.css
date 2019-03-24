@@ -675,6 +675,10 @@ pre tt:after {
     margin-left: 50px!important;
 }
 
+.listLink {
+    padding: 2px 5px;
+}
+
 @media (max-width: 1200px) {
     .headerDiv {
         max-width: 960px;
@@ -708,6 +712,14 @@ pre tt:after {
 
     .headerDiv {
         max-width: 723px;
+    }
+
+    .listLink {
+        width: 100%;
+    }
+
+    .linkButton {
+        width: 100%;
     }
 }
 

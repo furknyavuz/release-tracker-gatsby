@@ -39,19 +39,19 @@ export default ({ pageContext: { releases } }) => (
               <Row>
                 <Col style={{ padding: "2px" }}>
                   <Container fluid={true}>
-                    <Row style={{ padding: "4px", paddingBottom: "15px", paddingTop: "10px" }}>
+                    <Row style={{ padding: "4px", paddingBottom: "39px", paddingTop: "10px" }}>
                       {`${release.description}`}
                     </Row>
                     <Row style={{ paddingBottom: "10px" }}>
-                      <a style={{ padding: "2px", paddingLeft: "5px", paddingRight: "5px" }}
+                      <a className="listLink"
                          href={`https://www.github.com${release.resourcePath}`}
                          rel="noopener noreferrer" target="_blank">
-                        <Button size="sm" outline color="success">{`Latest release: ${release.tagName}`}</Button>
+                        <Button className="linkButton" size="sm" outline color="success">{`Latest release: ${release.tagName}`}</Button>
                       </a>
-                      {release.homepageUrl && <a style={{ padding: "2px", paddingLeft: "5px", paddingRight: "5px" }}
+                      {release.homepageUrl && <a className="listLink" style={{ padding: "2px", paddingLeft: "5px", paddingRight: "5px" }}
                          href={`${release.homepageUrl}`} rel="noopener noreferrer"
                          target="_blank">
-                        <Button size="sm" outline color="secondary">{`${release.homepageUrl}`}</Button>
+                        <Button className="linkButton" size="sm" outline color="secondary">{`${release.homepageUrl}`}</Button>
                       </a>}
                     </Row>
                   </Container>
