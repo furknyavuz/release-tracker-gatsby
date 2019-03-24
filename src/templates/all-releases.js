@@ -48,7 +48,7 @@ export default ({ pageContext: { releases } }) => (
                          rel="noopener noreferrer" target="_blank">
                         <Button className="linkButton" size="sm" outline color="success">{`Latest release: ${release.tagName}`}</Button>
                       </a>
-                      {release.homepageUrl && <a className="listLink" style={{ padding: "2px", paddingLeft: "5px", paddingRight: "5px" }}
+                      {release.homepageUrl && <a className="listLink"
                          href={`${release.homepageUrl}`} rel="noopener noreferrer"
                          target="_blank">
                         <Button className="linkButton" size="sm" outline color="secondary">{`${release.homepageUrl}`}</Button>
