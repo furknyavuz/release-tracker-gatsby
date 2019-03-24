@@ -716,6 +716,7 @@ pre tt:after {
 
     .listLink {
         width: 100%;
+        padding: 4px 5px;
     }
 
     .linkButton {
