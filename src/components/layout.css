@@ -670,6 +670,13 @@ pre tt:after {
     padding: 1.45rem 1.0875rem;
 }
 
+.footerDiv {
+    margin: 0 auto;
+    max-width: 1140px;
+    padding: 1.45rem 1.0875rem;
+    text-align: right;
+}
+
 .ghbtnsContainer {
     padding: 5px !important;
     margin-left: 50px !important;
