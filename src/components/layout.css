@@ -684,7 +684,6 @@ pre tt:after {
 
 .groupLogosContainer {
     padding: 5px !important;
-    margin-left: 30px !important;
 }
 
 .listLink {
@@ -705,7 +704,8 @@ pre tt:after {
     }
 
     .groupLogosContainer {
-        margin-left: 45px !important;
+        padding-left: 0px !important;
+        padding-right: 0px!important;
     }
 }
 
@@ -717,10 +717,6 @@ pre tt:after {
 
     .ghbtnsContainer {
         margin-left: 0 !important;
-    }
-
-    .groupLogosContainer {
-        margin-left: 0px !important;
     }
 
     .listHeader {
@@ -755,10 +751,6 @@ pre tt:after {
 @media (max-width: 767px) {
     .headerDiv {
         max-width: 550px;
-    }
-
-    .groupLogosContainer {
-        margin-left: 0px !important;
     }
 }
 

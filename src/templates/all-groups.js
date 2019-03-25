@@ -42,22 +42,52 @@ export default ({ pageContext: { groupNodes } }) => (
                 <Row>
                   <Col style={{ padding: "2px" }}>
                     <Container fluid={true}>
-                      <Row className="text-secondary" style={{ padding: "4px", paddingBottom: "39px", paddingTop: "10px"}}>
+                      <Row className="text-secondary"
+                           style={{ padding: "4px", paddingBottom: "39px", paddingTop: "10px" }}>
                         {`${groupNode.description}`}
                       </Row>
                     </Container>
                   </Col>
                   <Col lg={3} style={{ padding: "2px" }}>
                     <Container fluid={true} className="groupLogosContainer">
-                      <Row>
-                        {groupNode.releases.slice(0, 8).map(release => (
-                          <div style={{ padding: "20px" }}>
-                            <img src={release.avatarUrl} height={40} width={40} className="listImage"></img>
-                          </div>
-                        ))}
-                        <div style={{ padding: "20px" }}>
-                          <img src={threeDots} height={40} width={40} className="listImage"></img>
-                        </div>
+                      <Row style={{ padding: "2px", margin: "0 auto" }}>
+                        <Container fluid={true}>
+                          <Row>
+                            {groupNode.releases.slice(0, 3).map(release => (
+                              <Col>
+                                <div>
+                                  <img style={{ margin: "10px" }} src={release.avatarUrl} height={40} width={40}
+                                       className="listImage"></img>
+                                </div>
+                              </Col>
+                            ))}
+                          </Row>
+                          <Row>
+                            {groupNode.releases.slice(3, 6).map(release => (
+                              <Col>
+                                <div>
+                                  <img style={{ margin: "10px" }} src={release.avatarUrl} height={40} width={40}
+                                       className="listImage"></img>
+                                </div>
+                              </Col>
+                            ))}
+                          </Row>
+                          <Row>
+                            {groupNode.releases.slice(6, 8).map(release => (
+                              <Col>
+                                <div>
+                                  <img style={{ margin: "10px" }} src={release.avatarUrl} height={40} width={40}
+                                       className="listImage"></img>
+                                </div>
+                              </Col>
+                            ))}
+                            <Col>
+                              <div>
+                                <img style={{ margin: "10px" }} src={threeDots} height={40} width={40} className="listImage"></img>
+                              </div>
+                            </Col>
+                          </Row>
+                        </Container>
                       </Row>
                     </Container>
                   </Col>
