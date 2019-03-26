@@ -35,7 +35,7 @@ export default ({ pageContext: { groupNodes } }) => (
                   </Row>
                 </Container>
               </ListGroupItemHeading>
-              <hr style={{ position: "absolute" }}></hr>
+              <hr className="rt-hr"></hr>
             </div>
             <ListGroupItemText className="listText">
               <Container fluid={true}>

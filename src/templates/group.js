@@ -1,5 +1,7 @@
 import React from "react";
 
+import ReactMarkdown from "react-markdown";
+
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import {
@@ -32,26 +34,40 @@ export default ({ pageContext: { group, releases } }) => (
                 </Row>
               </Container>
             </ListGroupItemHeading>
-            <hr style={{ position: "absolute" }}></hr>
+            <hr className="rt-hr" style={{ position: "absolute" }}></hr>
           </div>
           <ListGroupItemText style={{ paddingTop: "26px" }}>
             <Container fluid={true}>
               <Row>
                 <Col style={{ padding: "2px" }}>
                   <Container fluid={true}>
-                    <Row style={{ padding: "4px", paddingBottom: "39px", paddingTop: "10px" }}>
+                    <Row style={{ padding: "4px", paddingTop: "10px" }}>
                       {`${release.description}`}
                     </Row>
-                    <Row style={{ paddingBottom: "10px" }}>
+                    <Row style={{ padding: "2px", paddingTop: "30px" }}>
                       <a className="listLink"
                          href={`https://www.github.com${release.resourcePath}`}
                          rel="noopener noreferrer" target="_blank">
-                        <Button className="linkButton" size="sm" outline color="success">{`Latest release: ${release.tagName}`}</Button>
+                        <Button className="linkButton" size="sm" outline
+                                color="success">{`Latest release: ${release.tagName}`}</Button>
                       </a>
+                    </Row>
+                    {release.releaseDescription && <Row style={{ padding: "6px", paddingTop: "25px" }}>
+                      <h2>{`Release notes`}</h2>
+                    </Row>}
+
+                    {release.releaseDescription && <Row style={{ padding: "6px", paddingTop: "10px" }}>
+
+                      <ReactMarkdown source={`${release.releaseDescription}`} className="release-description"/>
+
+                    </Row>}
+                    <Row style={{ paddingTop: "20px", paddingBottom: "10px" }}>
+
                       {release.homepageUrl && <a className="listLink"
                                                  href={`${release.homepageUrl}`} rel="noopener noreferrer"
                                                  target="_blank">
-                        <Button className="linkButton" size="sm" outline color="secondary">{`${release.homepageUrl}`}</Button>
+                        <Button className="linkButton" size="sm" outline
+                                color="secondary">{`${release.homepageUrl}`}</Button>
                       </a>}
                     </Row>
                   </Container>
@@ -61,6 +77,7 @@ export default ({ pageContext: { group, releases } }) => (
                     <Row>
                       <Col>
                         <iframe
+                          sandbox
                           src={`https://ghbtns.com/github-btn.html?user=${release.owner}&repo=${release.name}&type=star&count=true&size=large`}
                           frameBorder="0" scrolling="0" width="170px" height="30px">`
                         </iframe>
@@ -69,6 +86,7 @@ export default ({ pageContext: { group, releases } }) => (
                     <Row>
                       <Col>
                         <iframe
+                          sandbox
                           src={`https://ghbtns.com/github-btn.html?user=${release.owner}&repo=${release.name}&type=watch&count=true&v=2&size=large`}
                           frameBorder="0" scrolling="0" width="170px" height="30px">
 
@@ -78,6 +96,7 @@ export default ({ pageContext: { group, releases } }) => (
                     <Row>
                       <Col>
                         <iframe
+                          sandbox
                           src={`https://ghbtns.com/github-btn.html?user=${release.owner}&repo=${release.name}&type=fork&count=true&size=large`}
                           frameBorder="0" scrolling="0" width="170px" height="30px">
 
