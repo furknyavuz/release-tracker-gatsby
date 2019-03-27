@@ -51,17 +51,6 @@ export default ({ pageContext: { group, releases } }) => (
                         <Button className="linkButton" size="sm" outline
                                 color="success">{`Latest release: ${release.tagName}`}</Button>
                       </a>
-                    </Row>
-                    {release.releaseDescription && <Row style={{ padding: "6px", paddingTop: "25px" }}>
-                      <h2>{`Release notes`}</h2>
-                    </Row>}
-
-                    {release.releaseDescription && <Row style={{ padding: "6px", paddingTop: "10px" }}>
-
-                      <ReactMarkdown source={`${release.releaseDescription}`} className="release-description"/>
-
-                    </Row>}
-                    <Row style={{ paddingTop: "20px", paddingBottom: "10px" }}>
 
                       {release.homepageUrl && <a className="listLink"
                                                  href={`${release.homepageUrl}`} rel="noopener noreferrer"
@@ -106,6 +95,15 @@ export default ({ pageContext: { group, releases } }) => (
                   </Container>
                 </Col>
               </Row>
+              {release.releaseDescription && <Row style={{ padding: "6px", paddingTop: "10px" }}>
+                <h2>{`Release notes`}</h2>
+              </Row>}
+
+              {release.releaseDescription && <Row style={{ padding: "6px", paddingTop: "10px" }}>
+
+                <ReactMarkdown source={`${release.releaseDescription}`} className="release-description"/>
+
+              </Row>}
             </Container>
           </ListGroupItemText>
         </ListGroupItem>
