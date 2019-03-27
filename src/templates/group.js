@@ -45,7 +45,7 @@ export default ({ pageContext: { group, releases } }) => (
                 <Col style={{ padding: "2px" }}>
                   <Container fluid={true}>
                     <Row style={{ padding: "4px", paddingTop: "10px" }}>
-                      {`${release.description}`}
+                      {`${release.repositoryDescription}`}
                     </Row>
                     <Row style={{ padding: "2px", paddingTop: "30px" }}>
                       <a className="listLink"
