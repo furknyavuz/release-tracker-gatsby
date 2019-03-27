@@ -61,6 +61,22 @@ export default ({ pageContext: { group, releases } }) => (
                     </Row>
                   </Container>
                 </Col>
+                <Col lg={3} style={{ padding: "8px" }}>
+                  {release.topics.length > 0 && <h6>Topics</h6> }
+                  {release.topics.length > 0 && <div className="topicsDiv">
+                    {release.topics.map(topicNode => (
+                      <Button block className="linkButton" size="sm" outline
+                              color="secondary">
+                        <a className="listLink"
+                           href={`http://github.com/topics/${topicNode.topic.name}`}
+                           rel="noopener noreferrer" target="_blank" style={{ textDecoration: "none" }}>
+
+                          {`${topicNode.topic.name}`}
+                        </a>
+                      </Button>
+                    ))}
+                  </div>}
+                </Col>
               </Row>
               {release.releaseDescription && <Row style={{ padding: "6px", paddingTop: "10px" }}>
                 <h2>{`Release notes`}</h2>
