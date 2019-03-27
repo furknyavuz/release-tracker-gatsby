@@ -60,6 +60,15 @@ exports.createPages = async ({ actions: { createPage } }) => {
     groupNodes[j].releases = releases;
     ++j;
 
+    await asyncForEach(releases, async (release) => {
+
+      createPage({
+        path: `/${release.owner}/${release.name}`,
+        component: require.resolve("./src/templates/repository.js"),
+        context: { release }
+      });
+    });
+
     createPage({
       path: `/${groupNode.path}`,
       component: require.resolve("./src/templates/group.js"),

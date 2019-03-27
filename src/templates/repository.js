@@ -12,32 +12,26 @@ import {
   ListGroupItemText,
   Container, Row, Col
 } from "reactstrap";
-import { Link } from "gatsby";
 
-export default ({ pageContext: { group, releases } }) => (
+export default ({ pageContext: { release } }) => (
   <Layout>
-    <SEO title={`${group.name}`} keywords={[`gatsby`, `application`, `react`, `github`, `${group.name}`]}/>
-    <h3 style={{ padding: "2px", paddingBottom: "10px" }}>{`Latest releases of popular ${group.name} repositories`}</h3>
+    <SEO title={`${release.name}`} keywords={[`gatsby`, `application`, `react`, `github`, `${release.name}`]}/>
     <ListGroup>
-      {releases.map(release => (
-        release.tagName &&
         <ListGroupItem style={{ marginBottom: "20px", borderRadius: "3px" }}>
           <div style={{ position: "relative" }}>
-            <Link to={`/${release.owner}/${release.name}`} style={{ textDecoration: "none" }}>
-              <ListGroupItemHeading className="text-muted">
-                <Container fluid={true}>
-                  <Row>
-                    <Col lg={1}>
-                      <img src={release.avatarUrl} height={40} width={40} className="listImage"></img>
-                    </Col>
-                    <Col className="listHeader">
-                      {`${release.owner}/${release.name}`}
-                    </Col>
-                  </Row>
-                </Container>
-              </ListGroupItemHeading>
-              <hr className="rt-hr" style={{ position: "absolute" }}></hr>
-            </Link>
+            <ListGroupItemHeading className="text-muted">
+              <Container fluid={true}>
+                <Row>
+                  <Col lg={1}>
+                    <img src={release.avatarUrl} height={40} width={40} className="listImage"></img>
+                  </Col>
+                  <Col className="listHeader">
+                    {`${release.owner}/${release.name}`}
+                  </Col>
+                </Row>
+              </Container>
+            </ListGroupItemHeading>
+            <hr className="rt-hr" style={{ position: "absolute" }}></hr>
           </div>
           <ListGroupItemText style={{ paddingTop: "26px" }}>
             <Container fluid={true}>
@@ -87,13 +81,12 @@ export default ({ pageContext: { group, releases } }) => (
 
               {release.releaseDescription && <Row style={{ padding: "6px", paddingTop: "10px" }}>
 
-                <ReactMarkdown source={`${release.releaseDescription}`} className="release-description-short"/>
+                <ReactMarkdown source={`${release.releaseDescription}`} className="release-description"/>
 
               </Row>}
             </Container>
           </ListGroupItemText>
         </ListGroupItem>
-      ))}
     </ListGroup>
   </Layout>
 )
