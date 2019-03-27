@@ -585,16 +585,12 @@ pre tt:after {
     padding: 2px 5px;
 }
 
-.linkButton:hover a {
-    color: inherit;
-}
-
-.linkButton a {
-    color: inherit;
-}
-
 .listText {
     padding-top: 26px;
+}
+
+.topicLink {
+    padding-bottom: 5px;
 }
 
 .topicsDiv {
