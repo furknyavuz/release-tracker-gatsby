@@ -87,7 +87,9 @@ export default ({ pageContext: { group, releases } }) => (
 
               {release.releaseDescription && <Row style={{ padding: "6px", paddingTop: "10px" }}>
 
-                <ReactMarkdown source={`${release.releaseDescription}`} className="release-description-short"/>
+                <div className="release-description">
+                  <ReactMarkdown source={`${release.releaseDescription}`} className="release-description-markdown-short"/>
+                </div>
 
               </Row>}
             </Container>

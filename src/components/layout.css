@@ -611,34 +611,47 @@ pre tt:after {
     overflow: scroll;
 }
 
-.release-description-short {
-    padding: 18px;
+.release-description {
+    padding: 7px;
     border: 1px solid rgba(0,0,0,.125);
     width: 100%;
     -webkit-box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.2);
     -moz-box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.2);
     box-shadow: inset 0px 0px 5px 2px rgba(0,0,0,0.2);
+    overflow: scroll;
+}
+
+.release-description-markdown {
+    margin: 5px;
+    padding: 18px;
+    width: 100%;
+}
+
+.release-description-markdown-short {
+    margin: 5px;
+    padding: 18px;
+    width: 100%;
     max-height: 600px;
     overflow: scroll;
 }
 
-.release-description h1 {
+.release-description-markdown h1 {
     font-size: 2em;
 }
 
-.release-description h2 {
+.release-description-markdown h2 {
     font-size: 1.75em;
 }
 
-.release-description h3 {
+.release-description-markdown h3 {
     font-size: 1.5em;
 }
 
-.release-description h4 {
+.release-description-markdown h4 {
     font-size: 1.25em;
 }
 
-.release-description h5 {
+.release-description-markdown h5 {
     font-size: 1em;
 }
 
