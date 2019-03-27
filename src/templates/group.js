@@ -61,39 +61,6 @@ export default ({ pageContext: { group, releases } }) => (
                     </Row>
                   </Container>
                 </Col>
-                <Col lg={3} style={{ padding: "2px" }}>
-                  <Container fluid={true} className="ghbtnsContainer">
-                    <Row>
-                      <Col>
-                        <iframe
-                          sandbox
-                          src={`https://ghbtns.com/github-btn.html?user=${release.owner}&repo=${release.name}&type=star&count=true&size=large`}
-                          frameBorder="0" scrolling="0" width="170px" height="30px">`
-                        </iframe>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <iframe
-                          sandbox
-                          src={`https://ghbtns.com/github-btn.html?user=${release.owner}&repo=${release.name}&type=watch&count=true&v=2&size=large`}
-                          frameBorder="0" scrolling="0" width="170px" height="30px">
-
-                        </iframe>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <iframe
-                          sandbox
-                          src={`https://ghbtns.com/github-btn.html?user=${release.owner}&repo=${release.name}&type=fork&count=true&size=large`}
-                          frameBorder="0" scrolling="0" width="170px" height="30px">
-
-                        </iframe>
-                      </Col>
-                    </Row>
-                  </Container>
-                </Col>
               </Row>
               {release.releaseDescription && <Row style={{ padding: "6px", paddingTop: "10px" }}>
                 <h2>{`Release notes`}</h2>
