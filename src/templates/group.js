@@ -17,8 +17,20 @@ import { Link } from "gatsby";
 export default ({ pageContext: { group, releases } }) => (
   <Layout>
     <SEO title={`${group.name}`} keywords={[`gatsby`, `application`, `react`, `github`, `${group.name}`]}/>
-    <h3 style={{ padding: "2px", paddingBottom: "10px" }}>{`Latest releases of popular ${group.name} repositories`}</h3>
     <ListGroup>
+      <ListGroupItem style={{ marginBottom: "20px", borderRadius: "3px" }}>
+        <div style={{ position: "relative" }}>
+          <ListGroupItemHeading className="text-muted">
+            <Container fluid={true}>
+              <Row>
+                <Col className="listHeader">
+                  {`Latest releases of popular ${group.name} repositories`}
+                </Col>
+              </Row>
+            </Container>
+          </ListGroupItemHeading>
+        </div>
+      </ListGroupItem>
       {releases.map(release => (
         release.tagName &&
         <ListGroupItem style={{ marginBottom: "20px", borderRadius: "3px" }}>
@@ -88,7 +100,8 @@ export default ({ pageContext: { group, releases } }) => (
               {release.releaseDescription && <Row style={{ padding: "6px", paddingTop: "10px" }}>
 
                 <div className="release-description">
-                  <ReactMarkdown source={`${release.releaseDescription}`} className="release-description-markdown-short"/>
+                  <ReactMarkdown source={`${release.releaseDescription}`}
+                                 className="release-description-markdown-short"/>
                 </div>
 
               </Row>}

@@ -27,9 +27,9 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
+      <div className="base">
         <Header siteTitle={data.site.siteMetadata.title}/>
-        <Container>
+        <Container className="baseContainer">
           <Row>
             <Col>
               <main>{children}</main>
@@ -37,7 +37,7 @@ const Layout = ({ children }) => (
           </Row>
         </Container>
         <Footer/>
-      </>
+      </div>
     )}
   />
 );

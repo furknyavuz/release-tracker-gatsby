@@ -1,6 +1,7 @@
 html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    min-height: 100%;
 }
 
 body {
@@ -550,6 +551,15 @@ pre code:after,
 pre tt:before,
 pre tt:after {
     content: "";
+}
+
+.baseContainer {
+    min-height: 100vh;
+}
+
+.base {
+    background: rgb(213,213,213);
+    background: linear-gradient(153deg, rgba(213,213,213,1) 0%, rgba(228,228,228,1) 35%, rgba(255,255,255,1) 100%);
 }
 
 .listHeader {

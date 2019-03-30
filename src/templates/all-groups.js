@@ -15,8 +15,22 @@ import threeDots from "../images/three-dots.png";
 export default ({ pageContext: { groupNodes } }) => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`, `github`]}/>
-    <h3 style={{ padding: "2px", paddingBottom: "10px" }}>Latest releases of popular repositories</h3>
+
     <ListGroup>
+      <ListGroupItem style={{ marginBottom: "20px", borderRadius: "3px" }}>
+        <div style={{ position: "relative" }}>
+          <ListGroupItemHeading className="text-muted">
+            <Container fluid={true}>
+              <Row>
+                <Col className="listHeader">
+                  Latest releases of popular repositories
+                </Col>
+              </Row>
+            </Container>
+          </ListGroupItemHeading>
+        </div>
+      </ListGroupItem>
+
       {groupNodes.map(groupNode => (
         <Link
           to={`/${groupNode.path}`}
